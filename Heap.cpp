@@ -97,8 +97,8 @@ int heap::remove(const std::string &id, int * pKey, void * ppData) {
 	}
 
 	// Set key to least possible value, percolate up, then deleteMin
-	n->key = INT_MIN;
-	percolateUp(getPos(n));
+	pn->key = INT_MIN;
+	percolateUp(getPos(pn));
 	deleteMin();
 
 	return 0;
