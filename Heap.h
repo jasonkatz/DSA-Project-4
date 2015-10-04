@@ -1,8 +1,6 @@
 #ifndef HASH_H
 #define HASH_H
 
-#include <vector>
-#include <string>
 #include "Hash.h"
 
 class heap {
@@ -62,8 +60,8 @@ private:
 	std::vector<node> data; // The actual binary heap
 	hashTable * mapping; // Maps ids to node pointers
 
-	int percolateUp(int posCur, int key);
-	int percolateDown(int posCur);
+	void percolateUp(int posCur);
+	void percolateDown(int posCur);
 	int getPos(node * pn);
 
 };
