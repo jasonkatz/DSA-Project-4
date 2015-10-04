@@ -7,6 +7,8 @@
 
 class heap {
 
+public:
+
 	// The constructor allocates space for the nodes of the heap
 	// and the mapping (hash table) based on the specified capacity
 	heap(int cap);
@@ -60,8 +62,8 @@ private:
 	std::vector<node> data; // The actual binary heap
 	hashTable * mapping; // Maps ids to node pointers
 
-	void percolateUp(int posCur);
-	void percolateDown(int posCur);
+	int percolateUp(int posCur, int key);
+	int percolateDown(int posCur);
 	int getPos(node * pn);
 
 };
