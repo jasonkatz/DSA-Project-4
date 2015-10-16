@@ -28,7 +28,7 @@ int hashTable::hash(const std::string &key) {
 int hashTable::insert(const std::string &key, void *pv) {
 	int hashNum = hash(key);
 
-	if (data[hashNum].isOccupied && data[hashNum].key == key) {
+	if (contains(key)) {
 		return 1;
 	}
 
