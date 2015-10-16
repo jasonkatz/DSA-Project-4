@@ -75,6 +75,7 @@ int heap::deleteMin(std::string * pId, int * pKey, void * ppData) {
 
 	// Swap root node with last node and new root down
 	data[1] = data[size--];
+	mapping->setPointer(data[1].id, &data[1]);
 	percolateDown(1);
 
 	return 0;
@@ -108,8 +109,10 @@ void heap::percolateUp(int posCur) {
 	node tmp = data[posCur];
 	for (; posCur > 1 && tmp.key < data[posCur / 2].key; posCur /= 2) {
 		data[posCur] = data[posCur / 2];
+		mapping->setPointer(data[posCur].id, &data[posCur]);
 	}
 	data[posCur] = tmp;
+	mapping->setPointer(data[posCur].id, &data[posCur]);
 }
 
 void heap::percolateDown(int posCur) {
@@ -122,11 +125,13 @@ void heap::percolateDown(int posCur) {
 		}
 		if (data[child].key < tmp.key) {
 			data[posCur] = data[child];
+			mapping->setPointer(data[posCur].id, &data[posCur]);
 		} else {
 			break;
 		}
 	}
 	data[posCur] = tmp;
+	mapping->setPointer(data[posCur].id, &data[posCur]);
 }
 
 int heap::getPos(node * pn) {
